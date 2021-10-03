@@ -13,8 +13,38 @@
     </ion-toolbar>
   </ion-header>
 
+   <!-- _________  BY WALID    _________ -->
+  <!-- <div id="container">
+    <ion-item>
+      <ion-label>Weight</ion-label>
+      <ion-input clearInput type='number' placeholder='Weight' [(ngModel)]='weight'>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed" >Height</ion-label>
+      <ion-input clearInput type='number' placeholder='Height' [(ngModel)]='height'>
+      </ion-input>
+    </ion-item>
+    <ion-button color="danger" (click)='calculateHandler()'>Calculate</ion-button>
+    <p>{{bmiV}}</p>
+  </div> -->
+
+  <!-- ___________ BY SIR  _________________-->
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <h2>Have a healthy lifestyle</h2>
+    <img src="assets/healthcare_logo.png" alt="logo" width="7%" >
+    <ion-item>
+      <ion-label position="floating">Weight</ion-label>
+      <ion-input clearInput type='number' placeholder='Weight (kg)' [(ngModel)]='weightSir'>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" [{ngModel}]='heightSir' >Height</ion-label>
+      <ion-input clearInput type='number' placeholder='Height (cm)' [(ngModel)]='heightSir'>
+      </ion-input>
+    </ion-item>
+    <ion-button expand="block" color="danger" (click)='calculatePressed()'>Calculate</ion-button>
+
   </div>
+
 </ion-content>
