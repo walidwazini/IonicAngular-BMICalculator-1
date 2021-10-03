@@ -31,15 +31,15 @@ export class HomePage {
     // toFixed ->
     // toPrecision ->
     let messageStatus = '';
-    this.bmiSir = (this.weightSir / Math.pow(this.heightSir, 2)).toFixed(2);
+    this.bmiSir = (this.weightSir / Math.pow((this.heightSir/100),2)).toFixed(2)
     if (this.bmiSir < 18) {
-      messageStatus = 'Your are under weight';
+      messageStatus = `Your are under weight ${this.bmiSir}`;
     } else if (this.bmiSir < 25) {
-      messageStatus = "You're normal";
+      messageStatus = `"You're normal ${this.bmiSir}`;
     } else if (this.bmiSir < 30) {
-      messageStatus = 'You are overweight';
+      messageStatus = `You are overweight ${this.bmiSir}`;
     } else {
-      messageStatus = 'You are OBESE!';
+      messageStatus = `You are OBESE! ${this.bmiSir}`;
     }
 
     const toast = await this.toastController.create({
