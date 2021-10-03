@@ -18,6 +18,7 @@ export class HomePage {
   weightSir
   heightSir
   bmiSir
+  
 
   constructor() {}
 
@@ -31,6 +32,13 @@ export class HomePage {
     // toFixed -> 
     // toPrecision ->
     this.bmiSir = (this.weightSir / Math.pow((this.heightSir),2)).toFixed(2)
+    if (this.bmiSir < 18 ){
+
+    } else if (this.bmiSir < 25) {
+
+    } else if (this.bmiSir < 30) {
+
+    }
   }
 
 }
