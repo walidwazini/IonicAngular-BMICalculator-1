@@ -54,4 +54,10 @@ export class HomePage {
     });
     toast.present();
   }
+
+  reset(){
+    this.weightSir = 0
+    this.heightSir = 0
+    this.bmiSir = 0
+  }
 }
