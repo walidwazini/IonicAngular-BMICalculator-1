@@ -19,6 +19,7 @@ export class HomePage {
   heightSir;
   bmiSir;
 
+
   constructor(public toastController: ToastController) {}
 
   calculateHandler() {
@@ -29,21 +30,26 @@ export class HomePage {
 
   async calculatePressed() {
     // toFixed ->
-    // toPrecision ->
+    let colorStatus = 'dark'
     let messageStatus = '';
     this.bmiSir = (this.weightSir / Math.pow((this.heightSir/100),2)).toFixed(2)
     if (this.bmiSir < 18) {
       messageStatus = `Your are under weight ${this.bmiSir}`;
+      colorStatus = 'danger'
     } else if (this.bmiSir < 25) {
       messageStatus = `"You're normal ${this.bmiSir}`;
+      colorStatus = 'success'
     } else if (this.bmiSir < 30) {
       messageStatus = `You are overweight ${this.bmiSir}`;
+      colorStatus = 'warning'
     } else {
       messageStatus = `You are OBESE! ${this.bmiSir}`;
+      colorStatus = 'danger'
     }
 
     const toast = await this.toastController.create({
       message: messageStatus,
+      color : colorStatus,
       duration: 2000,
     });
     toast.present();
