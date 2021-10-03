@@ -11,46 +11,41 @@ import {
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  weight = 0
-  height = 0
-  bmiV = 0
+  weight = 0;
+  height = 0;
+  bmiV = 0;
 
-  weightSir
-  heightSir
-  bmiSir
-  
+  weightSir;
+  heightSir;
+  bmiSir;
 
-  constructor(
-    public toastController : ToastController
-  ) {}
+  constructor(public toastController: ToastController) {}
 
-  calculateHandler(){
-    this.bmiV = this.weight / ((this.height / 100) ^ 2)
-    console.log(this.bmiV)
-    return this.bmiV
+  calculateHandler() {
+    this.bmiV = this.weight / ((this.height / 100) ^ 2);
+    console.log(this.bmiV);
+    return this.bmiV;
   }
 
-  async calculatePressed(){
-    // toFixed -> 
+  async calculatePressed() {
+    // toFixed ->
     // toPrecision ->
-    let message = ''
-    this.bmiSir = (this.weightSir / Math.pow((this.heightSir),2)).toFixed(2)
-    if (this.bmiSir < 18 ){
-
+    let messageStatus = '';
+    this.bmiSir = (this.weightSir / Math.pow(this.heightSir, 2)).toFixed(2);
+    if (this.bmiSir < 18) {
+      messageStatus = 'Your are under weight';
     } else if (this.bmiSir < 25) {
-
+      messageStatus = "You're normal";
     } else if (this.bmiSir < 30) {
-
+      messageStatus = 'You are overweight';
     } else {
-
+      messageStatus = 'You are OBESE!';
     }
-   
-      const toast = await this.toastController.create({
-        message: 'Your settings have been saved.',
-        duration: 2000
-      });
-      toast.present();
-    
-  }
 
+    const toast = await this.toastController.create({
+      message: messageStatus,
+      duration: 2000,
+    });
+    toast.present();
+  }
 }
