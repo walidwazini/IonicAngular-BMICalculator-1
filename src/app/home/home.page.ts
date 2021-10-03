@@ -20,7 +20,9 @@ export class HomePage {
   bmiSir
   
 
-  constructor() {}
+  constructor(
+    public toastController : ToastController
+  ) {}
 
   calculateHandler(){
     this.bmiV = this.weight / ((this.height / 100) ^ 2)
@@ -28,9 +30,10 @@ export class HomePage {
     return this.bmiV
   }
 
-  calculatePressed(){
+  async calculatePressed(){
     // toFixed -> 
     // toPrecision ->
+    let message = ''
     this.bmiSir = (this.weightSir / Math.pow((this.heightSir),2)).toFixed(2)
     if (this.bmiSir < 18 ){
 
@@ -38,7 +41,16 @@ export class HomePage {
 
     } else if (this.bmiSir < 30) {
 
+    } else {
+
     }
+   
+      const toast = await this.toastController.create({
+        message: 'Your settings have been saved.',
+        duration: 2000
+      });
+      toast.present();
+    
   }
 
 }
